@@ -18,6 +18,7 @@ const BrowseEvents = () => {
     }, [user]);
 
     const loadEvents = async () => {
+        if (!user?.id) return;
         try {
             const [data, registrations] = await Promise.all([
                 eventService.getApprovedEvents(),

@@ -14,10 +14,14 @@ const MyTickets = () => {
     const [qrDataUrl, setQrDataUrl] = useState('');
 
     useEffect(() => {
-        loadData();
-    }, []);
+        if (user) {
+            loadData();
+        }
+    }, [user]);
 
     const loadData = async () => {
+        if (!user?.id) return;
+
         const regs = await attendanceService.getStudentRegistrations(user.id);
         setTickets(regs);
 
@@ -71,7 +75,7 @@ const MyTickets = () => {
 
         doc.setFontSize(30);
         doc.setFont('helvetica', 'bold');
-        doc.text(user.name, 148.5, 95, { align: 'center' });
+        doc.text(user?.name || 'Student', 148.5, 95, { align: 'center' });
 
         doc.setFontSize(18);
         doc.setFont('helvetica', 'normal');

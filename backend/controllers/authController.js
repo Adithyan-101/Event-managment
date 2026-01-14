@@ -17,8 +17,7 @@ export const register = async (req, res) => {
             role
         });
 
-        const { password: _, ...userWithoutPass } = newUser.toObject();
-        res.json(userWithoutPass);
+        res.json(newUser);
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
@@ -37,8 +36,7 @@ export const login = async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        const { password: _, ...userWithoutPass } = user.toObject();
-        res.json(userWithoutPass);
+        res.json(user);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

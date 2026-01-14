@@ -24,6 +24,7 @@ const ManageEvents = () => {
     }, [user]);
 
     const loadEvents = async () => {
+        if (!user?.id) return;
         try {
             const data = await eventService.getClubEvents(user.id);
             setEvents(data);
@@ -43,8 +44,8 @@ const ManageEvents = () => {
         try {
             await eventService.createEvent({
                 ...formData,
-                clubId: user.id,
-                clubName: user.clubName || 'My Club'
+                clubId: user?.id,
+                clubName: user?.clubName || 'My Club'
             });
             setShowModal(false);
             setFormData({ title: '', description: '', date: '', capacity: '' });
