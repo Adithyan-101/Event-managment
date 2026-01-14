@@ -4,7 +4,8 @@
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-# Ensure we are using the LTS version we installed
+# Ensure we have the LTS version installed and use it
+nvm install --lts
 nvm use --lts
 
 # Install dependencies if missing (safety check)
@@ -13,6 +14,6 @@ if [ ! -d "node_modules" ]; then
     npm install
 fi
 
-# Run the dev server using the explicit node executable
+# Run the dev server using npm run dev (concurrently vite and server)
 echo "Starting Development Server with Node $(node -v)..."
-node node_modules/vite/bin/vite.js
+npm run dev

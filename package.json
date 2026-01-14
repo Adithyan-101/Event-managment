@@ -7,7 +7,7 @@
     "start": "node server/index.js",
     "dev": "concurrently \"vite\" \"node server/index.js\"",
     "build": "vite build",
-    "lint": "eslint .",
+    "lint": "eslint ."
   },
   "dependencies": {
     "concurrently": "^9.2.1",
@@ -17,7 +17,6 @@
     "html5-qrcode": "^2.3.8",
     "jspdf": "^3.0.4",
     "lucide-react": "^0.561.0",
-    "mongoose": "^9.1.1",
     "qrcode": "^1.5.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
