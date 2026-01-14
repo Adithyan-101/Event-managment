@@ -1,0 +1,16 @@
+{
+    "name": "college_event_system-backend",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "node --watch index.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.3",
+        "express": "^5.2.1",
+        "mongoose": "^8.9.5",
+        "bcryptjs": "^2.4.3"
+    }
+}
